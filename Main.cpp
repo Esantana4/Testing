@@ -15,9 +15,9 @@
  Otoniel Torres Bernal & Thanh Tran -
  */
 
-#include <iomanip>
 #include "input.h"
 #include <iostream>
+#include "TicTacToe.h"
 
 using namespace std;
 
@@ -57,7 +57,7 @@ void mainMenu()
         switch (option)
         {
         case 0: exit(1); break;
-        case 1: system("cls"); break;
+        case 1: system("cls"); ticTacToe(); break;
         case 2: system("cls"); break;
         case 3: system("cls"); break;
 
