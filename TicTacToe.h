@@ -25,15 +25,18 @@ void ticTacToe()
 
 	if (player1 == boardPostion00)
 	{
-		player1 = board[0][0];
-		std::cout << "X";
+		boardPostion00 = static_cast<int>('X');
+		std::cout << boardPostion00;
+		//updateBoard();
 	}
+
+	std::cout << std::endl << boardPostion00 << std::endl;
+	system("pause");
 
 	if (player2 == boardPostion00)
 	{
 		player2 = board[0][0];
-		//board[0][0] = static_cast<int>("Y");
-		std::cout << "Y";
+		boardPostion00 = static_cast<int>('Y');
 	}
 }
 
