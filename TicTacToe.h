@@ -2,9 +2,12 @@
 #include <iostream>
 #include "input.h"
 
-void board();
+//void board();
 void makeMove(char playerSymbol);
 void updateBoard();
+bool checkWin(char playerSymbol);
+bool checkDraw();
+void mainMenu();
 
 const int ROW_SIZE = 3;
 const int COL_SIZE = 3;
@@ -12,8 +15,16 @@ const int COL_SIZE = 3;
 // move later???
 char boardUpdate[ROW_SIZE][COL_SIZE] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
 
+//Game statistics :
+//
+// 1 game using of Tic - Tac - Toe were played.
+// The fastest time was 30 seconds in 3 moves.
+// The slowest time was 30 seconds in 3 moves.
+// The average time was 30 second(s).
+
 void ticTacToe()
 {
+	char currentPlayer = 'X'; // Start with player X
 
 	std::cout << "Tic-tac-toe (also known as Noughts and crosses or Xs and Os) is a game for two\n";
 	std::cout << "players, X and O, who take turns marking the spaces in a 3╫3 grid.The player who\n";
@@ -35,37 +46,64 @@ void ticTacToe()
 	std::cout << "|---|---|---|\n";
 	std::cout << "\n\n";
 
-	char currentPlayer = 'X'; // Start with player X
-
 	while (true) {
 		makeMove(currentPlayer);
 
 		// Check for win or draw conditions
-		// Switch players for the next turn
-		currentPlayer = (currentPlayer == 'X') ? 'Y' : 'X';
-	}
+		if (checkWin(currentPlayer)) {
+			std::cout << "Player " << currentPlayer << " wins!" << std::endl;
+			system("pause");
+			break;
+		}
+		else if (checkDraw()) {
+			std::cout << "It's a draw!" << std::endl;
+			system("pause");
+			break;
+		}
 
+		// Check for win or draw conditions
+		// Switch players for the next turn
+		currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+	}
+	
 }
 
-void makeMove(char playerSymbol) {
-
+void makeMove(char playerSymbol)
+{
 	std::cout << "Human moves ...\n\n";
 
-	// Take player input for row and column
-	int row = inputInteger("Enter the row (1..3): ", 1, 3) - 1; // Adjust input to 0-based index
-	int col = inputInteger("Enter the column (1..3): ", 1, 3) - 1;
+	bool validMove = false;
 
-	// Check if the selected position is already occupied
-	if (boardUpdate[row][col] == ' ') {
-		// Update the board with the player's symbol
-		boardUpdate[row][col] = playerSymbol;
-		updateBoard();
+	while (!validMove)
+	{
+		// Take player input for row and column
+		int row = inputInteger("Enter the row (1..3) or 0 to forfeit: ", -1, 3) - 1; // Adjust input to 0-based index
+		if (row == -1)
+		{
+			system("cls"); mainMenu(); // Or exit(0)?????????????????????????
+		}
+
+		int col = inputInteger("Enter the column (1..3) or 0 to forfeit: ", -1, 3) - 1;
+		if (col == -1) 
+		{
+			system("cls"); mainMenu(); // Or exit(0)?????????????????????????
+		}
+
+		// Check if the selected position is already occupied
+		if (boardUpdate[row][col] == ' ') {
+			// Update the board with the player's symbol
+			boardUpdate[row][col] = playerSymbol;
+			validMove = true;
+		}
+		else {
+			std::cout << "Position already occupied. Try again." << std::endl;
+		}
+
 	}
-	else {
-		std::cout << "Position already occupied. Try again." << std::endl;
-		makeMove(playerSymbol); // Recursive call to try again
-	}
+
+	updateBoard();
 }
+
 
 void updateBoard() {
 	std::cout << "\n\n";
@@ -83,7 +121,44 @@ void updateBoard() {
 	std::cout << "\n\n";
 }
 
+bool checkWin(char playerSymbol)
+{
+	// Check rows, columns, and diagonals for a win
+	for (int i = 0; i < ROW_SIZE; i++) {
+		if (boardUpdate[i][0] == playerSymbol && boardUpdate[i][1] == playerSymbol && boardUpdate[i][2] == playerSymbol) {
+			return true; // Row win
+		}
+		if (boardUpdate[0][i] == playerSymbol && boardUpdate[1][i] == playerSymbol && boardUpdate[2][i] == playerSymbol) {
+			return true; // Column win
+		}
+	}
 
+	if (boardUpdate[0][0] == playerSymbol && boardUpdate[1][1] == playerSymbol && boardUpdate[2][2] == playerSymbol) {
+		return true; // Diagonal win (top-left to bottom-right)
+	}
+
+	if (boardUpdate[0][2] == playerSymbol && boardUpdate[1][1] == playerSymbol && boardUpdate[2][0] == playerSymbol) {
+		return true; // Diagonal win (top-right to bottom-left)
+	}
+
+	return false;
+}
+
+bool checkDraw()
+{
+	// Check if the board is full (a draw)
+	for (int i = 0; i < ROW_SIZE; i++) {
+		for (int j = 0; j < COL_SIZE; j++) {
+			if (boardUpdate[i][j] == ' ') {
+				return false; // Empty cell found, the game is not a draw
+			}
+		}
+	}
+
+	return true; // All cells are occupied, it's a draw
+}
+
+/*
 void board()
 {
 
@@ -99,6 +174,7 @@ void board()
 	std::cout << "\n\n";
 
 }
+*/
 
 
 
