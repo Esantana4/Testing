@@ -5,14 +5,14 @@
 
  Description:
 
- Part 1:
- Part 2:
- Part 3:
+ Part 1: Tic-Tac-Toe game
+ Part 2: Tower Of Hanoi
+ Part 3: n-Queens
 
  Credit:
- Joe Bryant & Erik Santana -
- Saul Merino & John Kim -
- Otoniel Torres Bernal & Thanh Tran -
+ Joe Bryant & Erik Santana - Tic-Tac-Toe game
+ Saul Merino & John Kim - Tower Of Hanoi
+ Otoniel Torres Bernal & Thanh Tran - n-Queens
  */
 
 #include "input.h"
@@ -35,6 +35,7 @@ int main()
 // Post-Condition: no return. Main menu
 void mainMenu()
 {
+    int gamesPlayed = 1;
 
     // Main Menu
 
@@ -57,7 +58,7 @@ void mainMenu()
         switch (option)
         {
         case 0: exit(1); break;
-        case 1: system("cls"); ticTacToe(); break;
+        case 1: system("cls"); ticTacToe(); cout << "Games played:***************" << gamesPlayed++ << endl; break;
         case 2: system("cls"); break;
         case 3: system("cls"); break;
 
