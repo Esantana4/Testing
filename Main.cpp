@@ -58,7 +58,7 @@ void mainMenu()
         switch (option)
         {
         case 0: exit(1); break;
-        case 1: system("cls"); ticTacToe(); cout << "Games played:***************" << gamesPlayed++ << endl; break;
+        case 1: system("cls"); ticTacToe(); break;
         case 2: system("cls"); break;
         case 3: system("cls"); break;
 
