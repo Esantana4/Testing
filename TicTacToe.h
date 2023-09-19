@@ -285,23 +285,5 @@ void resetBoard() {
 	}
 }
 
-/*
-void board()
-{
-
-	std::cout << "\n\n";
-	std::cout << "Tic - Tac - Toe\n";
-	std::cout << "|---|---|---|\n";
-	std::cout << "|   |   |   |\n";
-	std::cout << "|---|---|---|\n";
-	std::cout << "|   |   |   |\n";
-	std::cout << "|---|---|---|\n";
-	std::cout << "|   |   |   |\n";
-	std::cout << "|---|---|---|\n";
-	std::cout << "\n\n";
-
-}
-*/
-
 
 
