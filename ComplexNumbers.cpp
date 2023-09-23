@@ -1,6 +1,6 @@
 #include "ComplexNumbers.h"
 
-// Credit: Joe Bryant& Erik Santana & Christian Hernandez
+// Credit: Joe Bryant & Erik Santana & Christian Hernandez
 
 // Pre-Condition: no parameters.
 // Post:Condition: no return. Initializer constructor

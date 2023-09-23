@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 
-// Credit: Joe Bryant& Erik Santana & Christian Hernandez
+// Credit: Joe Bryant & Erik Santana & Christian Hernandez
 
 char inputChar(string prompt, string options);
 int inputInteger(string prompt, int startRange, int endRange);
