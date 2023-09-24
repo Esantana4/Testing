@@ -54,6 +54,7 @@ void ComplexNumbers::complexMenu()
 
 	do
 	{
+		system("cls");
 		cout << "\n\t\tA complex number is a number that can be expressed in the form a + b i, where a and b are real\n";
 		cout << "\t\tnumbers, and i represents the \"imaginary unit\", satisfying the equation i^2 = -1. Because no\n";
 		cout << "\t\treal number satisfies this equation, i is called an imaginary number. For the complex number\n";
@@ -80,6 +81,10 @@ void ComplexNumbers::complexMenu()
 		case '0': system("cls"); mainMenu();
 		}
 	} while (true);
+
+	// new line
+	cout << "\n";
+	system("pause");
 }
 
 // Pre-Condition: no parameters.
@@ -93,6 +98,7 @@ void ComplexNumbers::multipleComplexMenu()
 
 	do
 	{
+		system("cls");
 		cout << "\n\t\tB> Multiple Complex Numbers\n";
 		cout << "\t\t" << string(90, char(205)) << endl;
 		cout << "\t\t\t1. Enter complex number C1\n";
@@ -134,8 +140,6 @@ void ComplexNumbers::multipleComplexMenu()
 				cout << "\t\t\tC1 = " << c1.getCoefficientA() << " + " << c1.getCoefficientB() << "i" << endl << endl;
 			}
 
-			system("pause");
-			system("cls");
 			break;
 		case 2:c2.setCoefficientA(inputDouble("\t\t\tEnter a number (double value) for the real part of C2: "));
 			c2.setCoefficientB(inputDouble("\t\t\tEnter a number (double value) for the imaginary part of C2: "));
@@ -162,33 +166,35 @@ void ComplexNumbers::multipleComplexMenu()
 			{
 				cout << "\t\t\tC2 = " << c2.getCoefficientA() << " + " << c2.getCoefficientB() << "i" << endl << endl;
 			}
-
-			system("pause");
-			system("cls");
 			break;
 		case 3: cout << endl;
 			displayEqual(c1, c2);
 			displayNotEqual(c1, c2);
 			system("pause");
-			system("cls");
-
 			break;
 		case 4: cout << endl;
 			displayAddition(c1, c2, c3);
+			cout << endl << endl;
+			system("pause");
 			break;
 		case 5:
 			break;
 		case 0:
 			cout << endl;
 			system("cls");
+			cout << endl << endl;
 			complexMenu();
 			break;
 		}
 	} while (true);
+
+	// new line
+	cout << "\n";
+	system("pause");
 }
 
 // Pre-Condition: parameters: ComplexNumbers& c1, ComplexNumbers& c2
-// Post:Condition: no return. This function checks if  c1 & c2 complex numbers are equal
+// Post:Condition: no return. This function checks if complex numbers c1 & c2 are equal
 void ComplexNumbers::displayEqual(ComplexNumbers& c1, ComplexNumbers& c2)
 {
 
