@@ -18,7 +18,13 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ComplexNumbers.cpp">
+    <ClCompile Include="MyBag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Course.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyBagTemplate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,7 +32,13 @@
     <ClInclude Include="input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ComplexNumbers.h">
+    <ClInclude Include="MyBag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Course.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyBagTemplate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

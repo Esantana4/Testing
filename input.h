@@ -330,3 +330,31 @@ double inputDouble(string prompt, double startRange, double endRange)
 	cin.ignore(999, '\n');
 	return input;
 }
+
+//PreCondition: a string input
+//PostCondition: convert a string to uppercase
+string toUpper(string& str)
+{
+	string result = str;
+	for (char& c : result)
+	{
+		c = toupper(c);
+	}
+
+	return result;
+}
+
+//PreCondition: a string input
+//PostCondition: Function to remove leading and trailing spaces from a string
+string removeLeadingTrailingSpaces(const string& input)
+{
+	size_t startPos = input.find_first_not_of(" \t\n\r");
+	if (startPos == string::npos)
+	{
+		// The string consists only of spaces
+		return "";
+	}
+
+	size_t endPos = input.find_last_not_of(" \t\n\r");
+	return input.substr(startPos, endPos - startPos + 1);
+}

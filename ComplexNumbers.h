@@ -48,6 +48,10 @@ public:
 	// - overloaded
 	friend ComplexNumbers operator-(ComplexNumbers& c1, ComplexNumbers& c2);
 
+	friend ComplexNumbers operator*(ComplexNumbers& c1, ComplexNumbers& c2);
+
+	friend ComplexNumbers operator/(ComplexNumbers& c2, ComplexNumbers& c1);
+
 	// == overloaded
 	friend bool operator==(ComplexNumbers& c1, ComplexNumbers& c2);
 
@@ -62,4 +66,13 @@ public:
 
 	// Displays the sum of two complex numbers(c1 & c2) and stores them in a new complex number(c3)
 	void displayAddition(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
+
+	void displaySubtraction(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
+
+	void displayMultiplication(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
+
+	void displayDivision(ComplexNumbers& c1, ComplexNumbers& c2, ComplexNumbers& c3);
+
+	void evaluateSteps(ComplexNumbers& c1, ComplexNumbers& c2);
+
 };
