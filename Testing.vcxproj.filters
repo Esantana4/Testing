@@ -18,13 +18,7 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyBag.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Course.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MyBagTemplate.cpp">
+    <ClCompile Include="SimpleCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,13 +26,7 @@
     <ClInclude Include="input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyBag.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Course.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MyBagTemplate.h">
+    <ClInclude Include="SimpleCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
