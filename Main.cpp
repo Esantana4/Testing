@@ -375,7 +375,7 @@ void option3()
                 return;
             }
 
-            //numRecords = inputInteger("Enter the number of records to insert: ", 0, 40);
+            numRecords = inputInteger("Enter the number of records to insert: ", 0, 40);
 
             string line;
             while (getline(inputFile, line)) {
@@ -437,7 +437,7 @@ void option3()
         case 'E':
         {
             // Display the contents of the hash table
-            studentTable.display(); system("pause");
+            studentTable.display(numRecords); system("pause");
 
         }break;
         }

@@ -29,7 +29,7 @@ public:
     void insert(const Student& student);
 
     // Display the contents of the hash table
-    void display();
+    void display(int numRecords);
 };
 
 /*
