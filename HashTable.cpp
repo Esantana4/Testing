@@ -24,10 +24,13 @@ void HashTable::insert(const Student& student) {
 
 // Display the contents of the hash table
 void HashTable::display() {
+    int count = 0;
     for (int i = 0; i < TABLE_SIZE; ++i) {
         if (table[i] != nullptr) {
-            cout << "[" << i << "] " << table[i]->name << " (" << table[i]->major << ") - GPA: " << table[i]->gpa << endl;
+            cout << "[" << count << "] " << i << ", " << table[i]->name << " (" << table[i]->major << ") - GPA: " << table[i]->gpa << endl;
+            count++;
         }
+        
     }
 }
 
