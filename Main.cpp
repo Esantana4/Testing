@@ -12,6 +12,7 @@
 #include "input.h"
 #include "DynamicArray.h"
 #include "DynamicArray.cpp"
+#include "HashTable.h"
 #include <random>
 #include <string>
 #include <fstream>
@@ -23,49 +24,6 @@ using namespace std;
 void option1();
 void option2();
 void option3();
-
-class HashTable {
-private:
-    static const int TABLE_SIZE = 100;
-    int ids[TABLE_SIZE];
-    string names[TABLE_SIZE];
-    string majors[TABLE_SIZE];
-    double gpas[TABLE_SIZE];
-
-public:
-    HashTable() {
-        for (int i = 0; i < TABLE_SIZE; ++i) {
-            ids[i] = -1;
-        }
-    }
-
-    int hash(int key) {
-        return key % TABLE_SIZE;
-    }
-
-    void insert(int id, const string& name, const string& major, double gpa) {
-        int index = hash(id);
-
-        while (ids[index] != -1) {
-            index = (index + 1) % TABLE_SIZE;
-        }
-
-        ids[index] = id;
-        names[index] = name;
-        majors[index] = major;
-        gpas[index] = gpa;
-    }
-
-    void display(int numRecords) {
-        int count = 0;
-        for (int i = 0; i < TABLE_SIZE && count < numRecords; ++i) {
-            if (ids[i] != -1) {
-                cout << "[" << count << "] " << i  << ", " << names[i] << " (" << majors[i] << ") - GPA: " << gpas[i] << endl;
-                ++count;
-            }
-        }
-    }
-};
 
 // Main Function
 int main()
