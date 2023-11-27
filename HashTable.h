@@ -7,6 +7,8 @@
 
 using namespace std;
 
+int inputInteger(string prompt, int startRange, int endRange);
+
 struct Student {
     int id;
     string name;
@@ -32,6 +34,8 @@ public:
     void display(int numRecords);
 
     Student* searchRecord(int id);
+
+    void removeRecord();
 };
 
 /*

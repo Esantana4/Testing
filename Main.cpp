@@ -445,11 +445,31 @@ void option3()
         }break;
         case 'C':
         {
+            // Get student details from the user
+            int id2 = inputInteger("Enter student ID: ", 0, 100);
+
+            // Check if the ID already exists
+            if (studentTable.searchRecord(id2) != nullptr) {
+                cout << "Error: Student with ID " << id2 << " already exists.\n";
+                return;
+            }
+
+            string name = inputString("Enter student name: ", false);
+            string major = inputString("Enter student major: ", false);
+            double gpa = inputDouble("Enter student GPA: ", 0.0, 4.0);
+
+            // Create a new student
+            Student newStudent = { id2, name, major, gpa };
+
+            // Insert the new student into the hash table
+            studentTable.insert(newStudent);
+
+            cout << "Student with ID " << id2 << " has been inserted.\n";
 
         }break;
         case 'D':
         {
-
+            studentTable.removeRecord();
         }break;
         case 'E':
         {

@@ -53,6 +53,31 @@ Student* HashTable::searchRecord(int id) {
     return nullptr; // Student not found
 }
 
+void HashTable::removeRecord() {
+    // Get student ID to remove
+    int idToRemove = inputInteger("\n\tEnter the ID of the student to remove: ", 0, 100);
+
+    // Find the index in the hash table
+    int index = hash(idToRemove);
+
+    // Search for the student in the hash table
+    while (table[index] != nullptr && table[index]->id != idToRemove) {
+        index = (index + 1) % TABLE_SIZE;
+    }
+
+    // If student is not found
+    if (table[index] == nullptr) {
+        cout << "\n\tStudent with ID " << idToRemove << " not found.\n\n";
+        return;
+    }
+
+    // Delete the student
+    delete table[index];
+    table[index] = nullptr;
+
+    cout << "\n\tStudent with ID " << idToRemove << " has been removed.\n\n";
+}
+
 /*
 HashTable::HashTable() {
     for (int i = 0; i < TABLE_SIZE; ++i) {
