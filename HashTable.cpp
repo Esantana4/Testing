@@ -34,6 +34,24 @@ void HashTable::display(int numRecords) {
     }
 }
 
+// Search for a student by ID
+Student* HashTable::searchRecord(int id) {
+    int index = hash(id);
+
+    // Keep probing until an empty slot is found
+    while (table[index] != nullptr) {
+        // Check if the current student has the desired ID
+        if (table[index]->id == id) {
+            return table[index]; // Found the student
+        }
+
+        // Move to the next slot using linear probing
+        index = (index + 1) % TABLE_SIZE;
+    }
+
+    return nullptr; // Student not found
+}
+
 /*
 HashTable::HashTable() {
     for (int i = 0; i < TABLE_SIZE; ++i) {

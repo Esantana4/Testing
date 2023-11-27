@@ -16,7 +16,7 @@ struct Student {
 
 class HashTable {
 private:
-    static const int TABLE_SIZE = 100;  // Choose an appropriate table size
+    static const int TABLE_SIZE = 100;
     Student* table[TABLE_SIZE];
 
 public:
@@ -30,6 +30,8 @@ public:
 
     // Display the contents of the hash table
     void display(int numRecords);
+
+    Student* searchRecord(int id);
 };
 
 /*

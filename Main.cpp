@@ -424,7 +424,24 @@ void option3()
         }break;
         case 'B':
         {
+            int id = inputInteger("Enter an ID to search for: ", 0, 100);
 
+            // Search for the student with the given ID
+            Student* foundStudent = studentTable.searchRecord(id);
+
+            // Check if the student was found
+            if (foundStudent != nullptr) {
+                // Display the details of the found student
+                cout << "Student found:\n";
+                cout << "ID: " << foundStudent->id << ", Name: " << foundStudent->name
+                    << ", Major: " << foundStudent->major << ", GPA: " << foundStudent->gpa << endl;
+            }
+            else {
+                // Student not found
+                cout << "Student with ID " << id << " not found.\n";
+            }
+
+            system("pause");
         }break;
         case 'C':
         {
