@@ -375,6 +375,29 @@ void option3()
                 return;
             }
 
+            //numRecords = inputInteger("Enter the number of records to insert: ", 0, 40);
+
+            string line;
+            while (getline(inputFile, line)) {
+                stringstream ss(line);
+                Student student;
+
+                // Assuming the format is: id, name, major, gpa
+                char comma;
+                ss >> student.id >> comma;
+                getline(ss, student.name, ',');
+                getline(ss, student.major, ',');
+                ss >> student.gpa;
+
+                studentTable.insert(student);
+            }
+
+            /*
+            if (!inputFile.is_open()) {
+                cout << "Error: Unable to open the file." << endl;
+                return;
+            }
+
             numRecords = inputInteger("Enter the number of records to insert: ", 0, 40);
             //cout << "Enter the number of records to insert: ";
             //cin >> numRecords;
@@ -395,7 +418,9 @@ void option3()
                 ss >> gpa;
 
                 studentTable.insert(id, name, major, gpa);
+                
             }
+            */
         }break;
         case 'B':
         {
@@ -412,7 +437,7 @@ void option3()
         case 'E':
         {
             // Display the contents of the hash table
-            studentTable.display(numRecords);
+            studentTable.display(); system("pause");
 
         }break;
         }

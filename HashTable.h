@@ -1,4 +1,38 @@
 #pragma once
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+struct Student {
+    int id;
+    string name;
+    string major;
+    double gpa;
+};
+
+class HashTable {
+private:
+    static const int TABLE_SIZE = 100;  // Choose an appropriate table size
+    Student* table[TABLE_SIZE];
+
+public:
+    HashTable();
+
+    // Hash function
+    int hash(int key);
+
+    // Insert a student into the hash table
+    void insert(const Student& student);
+
+    // Display the contents of the hash table
+    void display();
+};
+
+/*
 #include <iostream>
 using namespace std;
 
@@ -21,3 +55,4 @@ public:
 
     void display(int numRecords);
 };
+*/
