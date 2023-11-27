@@ -1,16 +1,21 @@
 #include "HashTable.h"
 
+//Precondition: NA
+//Postcondition: No return, Constructor.
 HashTable::HashTable() {
     // Initialize the table with nullptr
     fill_n(table, TABLE_SIZE, nullptr);
 }
 
-// Hash function
+//Responsible for determining the index in the hash table where an element with the given key should be stored or looked up.
+//Precondition: Parameters - int key
+//Postcondition: returns the result of the modulo operation: key % TABLE_SIZE
 int HashTable::hash(int key) {
     return key % TABLE_SIZE;
 }
 
-// Insert a student into the hash table
+//Precondition: Parameters - const Student& student
+//Postcondition: No return, inserts a student into the hash table
 void HashTable::insert(const Student& student) {
     int index = hash(student.id);
 
@@ -22,7 +27,8 @@ void HashTable::insert(const Student& student) {
     table[index] = new Student(student);
 }
 
-// Display the contents of the hash table
+//Precondition: Parameters - int numRecords
+//Postcondition: No return, displays the contents of the hash table
 void HashTable::display(int numRecords) {
     int count = 0;
     cout << "\n\tRecord(s) found:\n";
@@ -35,7 +41,8 @@ void HashTable::display(int numRecords) {
     cout << endl;
 }
 
-// Search for a student by ID
+//Precondition: Parameters - int id
+//Postcondition: Returns table[index], searches for a student by ID
 Student* HashTable::searchRecord(int id) {
     int index = hash(id);
 
@@ -53,6 +60,8 @@ Student* HashTable::searchRecord(int id) {
     return nullptr; // Student not found
 }
 
+//Precondition: No parameters
+//Postcondition: No return, removes a record by ID
 void HashTable::removeRecord() {
     // Get student ID to remove
     int idToRemove = inputInteger("\n\tEnter the ID of the student to remove: ", 0, 100);
@@ -77,39 +86,3 @@ void HashTable::removeRecord() {
 
     cout << "\n\tStudent with ID " << idToRemove << " has been removed.\n\n";
 }
-
-/*
-HashTable::HashTable() {
-    for (int i = 0; i < TABLE_SIZE; ++i) {
-        ids[i] = -1;
-    }
-}
-
-int HashTable::hash(int key) {
-    return key % TABLE_SIZE;
-}
-
-void HashTable::insert(int id, const string& name, const string& major, double gpa) {
-    int index = hash(id);
-
-    while (ids[index] != -1) {
-        index = (index + 1) % TABLE_SIZE;
-    }
-
-    ids[index] = id;
-    names[index] = name;
-    majors[index] = major;
-    gpas[index] = gpa;
-}
-
-void HashTable::display(int numRecords) {
-    int count = 0;
-    for (int i = 0; i < TABLE_SIZE && count < numRecords; ++i) {
-        if (ids[i] != -1) {
-            cout << "[" << count << "] " << i << ", " << names[i] << " (" << majors[i] << ") - GPA: " << gpas[i] << endl;
-            ++count;
-        }
-    }
-    system("pause");
-}
-*/

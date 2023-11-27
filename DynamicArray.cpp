@@ -124,7 +124,6 @@ bool DynamicArray<T>::binary_search(const T& item, int first, int last, int& ind
     }
 }
 
-
 // Remove an item from the DynamicArray
 // Precondition: A valid data type item variable
 // Postcondition: If the item is found, it is removed, and the size is updated.

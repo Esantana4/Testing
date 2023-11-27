@@ -2,10 +2,7 @@
 // Date: 11/25/2023
 // Description: Chapter 12 - Assignments 12
 
-//Credit:
-//Joe Bryant& Erik Santana 
-//Saul Merino
-//Christian Hernandez
+//Credit: Joe Bryant, Erik Santana, Saul Merino, Christian Hernandez & Bryan Alacron
 
 #include <iostream>
 #include <iomanip>
@@ -367,9 +364,8 @@ void option3()
         switch (toupper(inputChar("\n\t\tOption: ", static_cast<string>("ABCDE0"))))
         {
         case '0': return;
-        case 'A':
+        case 'A': // Insert records
         {
-
             if (!inputFile.is_open()) {
                 cout << "Error: Unable to open the file." << endl;
                 return;
@@ -382,7 +378,7 @@ void option3()
                 stringstream ss(line);
                 Student student;
 
-                // Assuming the format is: id, name, major, gpa
+                // Format: id, name, major, GPA
                 char comma;
                 ss >> student.id >> comma;
                 getline(ss, student.name, ',');
@@ -393,38 +389,8 @@ void option3()
             }
 
             cout << "\n\t" << numRecords << " records have been inserted.\n\n";
-
-            /*
-            if (!inputFile.is_open()) {
-                cout << "Error: Unable to open the file." << endl;
-                return;
-            }
-
-            numRecords = inputInteger("Enter the number of records to insert: ", 0, 40);
-            //cout << "Enter the number of records to insert: ";
-            //cin >> numRecords;
-
-            string line;
-            while (getline(inputFile, line)) {
-                stringstream ss(line);
-
-                int id;
-                char comma;
-                ss >> id >> comma;
-
-                string name, major;
-                getline(ss, name, ',');
-                getline(ss, major, ',');
-
-                double gpa;
-                ss >> gpa;
-
-                studentTable.insert(id, name, major, gpa);
-                
-            }
-            */
         }break;
-        case 'B':
+        case 'B': // Search for student
         {
             int id = inputInteger("\t\nEnter an ID to search for: ", 0, 100);
 
@@ -443,7 +409,7 @@ void option3()
                 cout << "\n\tStudent with ID " << id << " not found.\n";
             }
         }break;
-        case 'C':
+        case 'C': // New student entry
         {
             // Get student details from the user
             int id2 = inputInteger("Enter student ID: ", 0, 100);
@@ -469,6 +435,7 @@ void option3()
         }break;
         case 'D':
         {
+            // Call function to remove a record
             studentTable.removeRecord();
         }break;
         case 'E':
@@ -480,5 +447,6 @@ void option3()
         system("pause");
     } while (true);
 
+    //Close file
     inputFile.close();
 }

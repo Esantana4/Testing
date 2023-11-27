@@ -33,8 +33,10 @@ public:
     // Display the contents of the hash table
     void display(int numRecords);
 
+    // Search Record with ID
     Student* searchRecord(int id);
 
+    //remove record with ID
     void removeRecord();
 };
 
