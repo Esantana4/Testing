@@ -7,6 +7,13 @@ HashTable::HashTable() {
     fill_n(table, TABLE_SIZE, nullptr);
 }
 
+//Precondition: NA
+//Postcondition: Returns TABLE_SIZE
+int HashTable::getTable() const
+{
+    return TABLE_SIZE;
+}
+
 //Responsible for determining the index in the hash table where an element with the given key should be stored or looked up.
 //Precondition: Parameters - int key
 //Postcondition: returns the result of the modulo operation: key % TABLE_SIZE

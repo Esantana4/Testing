@@ -371,7 +371,7 @@ void option3()
                 return;
             }
 
-            numRecords = inputInteger("\n\tEnter the number of records to insert: ", 0, 40);
+            numRecords = inputInteger("\n\tEnter the number of records to insert: ", 0, studentTable.getTable());
 
             string line;
             while (getline(inputFile, line)) {
@@ -392,7 +392,7 @@ void option3()
         }break;
         case 'B': // Search for student
         {
-            int id = inputInteger("\t\nEnter an ID to search for: ", 0, 100);
+            int id = inputInteger("\t\nEnter an ID to search for: ", 0, studentTable.getTable());
 
             // Search for the student with the given ID
             Student* foundStudent = studentTable.searchRecord(id);
@@ -412,7 +412,7 @@ void option3()
         case 'C': // New student entry
         {
             // Get student details from the user
-            int id2 = inputInteger("Enter student ID: ", 0, 100);
+            int id2 = inputInteger("Enter student ID: ", 0, studentTable.getTable());
 
             // Check if the ID already exists
             if (studentTable.searchRecord(id2) != nullptr) {

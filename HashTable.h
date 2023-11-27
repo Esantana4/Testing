@@ -27,6 +27,9 @@ public:
     // Hash function
     int hash(int key);
 
+    // Getter, to access TABLE_SIZE
+    int getTable() const;
+
     // Insert a student into the hash table
     void insert(const Student& student);
 
