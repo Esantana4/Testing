@@ -375,7 +375,7 @@ void option3()
                 return;
             }
 
-            numRecords = inputInteger("Enter the number of records to insert: ", 0, 40);
+            numRecords = inputInteger("\n\tEnter the number of records to insert: ", 0, 40);
 
             string line;
             while (getline(inputFile, line)) {
@@ -391,6 +391,8 @@ void option3()
 
                 studentTable.insert(student);
             }
+
+            cout << "\n\t" << numRecords << " records have been inserted.\n\n";
 
             /*
             if (!inputFile.is_open()) {
@@ -424,7 +426,7 @@ void option3()
         }break;
         case 'B':
         {
-            int id = inputInteger("Enter an ID to search for: ", 0, 100);
+            int id = inputInteger("\t\nEnter an ID to search for: ", 0, 100);
 
             // Search for the student with the given ID
             Student* foundStudent = studentTable.searchRecord(id);
@@ -432,16 +434,14 @@ void option3()
             // Check if the student was found
             if (foundStudent != nullptr) {
                 // Display the details of the found student
-                cout << "Student found:\n";
-                cout << "ID: " << foundStudent->id << ", Name: " << foundStudent->name
-                    << ", Major: " << foundStudent->major << ", GPA: " << foundStudent->gpa << endl;
+                cout << "\n\tStudent record found\n";
+                cout << "\n\tID: " << foundStudent->id << "\n\tName: " << foundStudent->name
+                    << "\n\tMajor: " << foundStudent->major << "\n\tGPA: " << foundStudent->gpa << endl << endl;
             }
             else {
                 // Student not found
-                cout << "Student with ID " << id << " not found.\n";
+                cout << "\n\tStudent with ID " << id << " not found.\n";
             }
-
-            system("pause");
         }break;
         case 'C':
         {
@@ -454,10 +454,10 @@ void option3()
         case 'E':
         {
             // Display the contents of the hash table
-            studentTable.display(numRecords); system("pause");
-
+            studentTable.display(numRecords);
         }break;
         }
+        system("pause");
     } while (true);
 
     inputFile.close();
